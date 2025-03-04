@@ -4,9 +4,12 @@ const path = require('path');
 const { setupLogging } = require('./config/logging');
 require('dotenv').config();
 
-// Importar rutas
-//const authRoutes = require('./routes/auth.routes');
-//const userRoutes = require('./routes/user.routes');
+
+const authRoutes = require('./routes/auth.routes');
+const userRoutes = require('./routes/user.routes');
+const profesorRoutes = require('./routes/profesor.routes');
+const tutorRoutes = require('./routes/tutor.routes');
+const cursoRoutes = require('./routes/curso.routes');
 
 const app = express();
 
@@ -23,8 +26,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 setupLogging();
 
 // Rutas de la API
-//app.use('/api/auth', authRoutes);
-//app.use('/api/users', userRoutes);
+
+app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/profesores', profesorRoutes);
+app.use('/api/tutores', tutorRoutes);
+app.use('/api/cursos', cursoRoutes);
 
 // Middleware para accesibilidad - Agregar encabezados especiales
 app.use((req, res, next) => {
