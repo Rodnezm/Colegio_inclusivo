@@ -10,6 +10,11 @@ const userRoutes = require('./routes/user.routes');
 const profesorRoutes = require('./routes/profesor.routes');
 const tutorRoutes = require('./routes/tutor.routes');
 const cursoRoutes = require('./routes/curso.routes');
+const calificacionRoutes = require('./routes/calificacion.routes');
+const asistenciaRoutes = require('./routes/asistencia.routes');
+const financieroRoutes = require('./routes/financiero.routes');
+const materiaRoutes = require('./routes/materia.routes');
+const accesibilidadRoutes = require('./routes/accesibilidad.routes');
 
 const app = express();
 
@@ -32,6 +37,11 @@ app.use('/api/users', userRoutes);
 app.use('/api/profesores', profesorRoutes);
 app.use('/api/tutores', tutorRoutes);
 app.use('/api/cursos', cursoRoutes);
+app.use('/api/calificaciones', calificacionRoutes);
+app.use('/api/asistencias', asistenciaRoutes);
+app.use('/api/financiero', financieroRoutes);
+app.use('/api/materias', materiaRoutes);
+app.use('/api/accesibilidad', accesibilidadRoutes);
 
 // Middleware para accesibilidad - Agregar encabezados especiales
 app.use((req, res, next) => {
